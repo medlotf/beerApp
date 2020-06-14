@@ -4,7 +4,6 @@ import globalStyle from './../style/style';
 
 export default class ListItem extends Component {
 
-
   image = () => {
     let image = { uri: 'https://www.liquor.com/thmb/nzYXpum0AiReyEulV0dPqMBMxmY=/1440x1440/filters:fill(auto,1)/beer-0358105730dc469190b50f289962c910.png' };
     if (this.props.br.labels !== undefined) {
@@ -17,9 +16,7 @@ export default class ListItem extends Component {
       <View style={[styles.viewContainer, styles.flex]}  >
         {this.image()}
         <View style={styles.info}>
-          <Text style={{ textAlign: "right", fontSize: 18, fontWeight: 'bold' }} onPress={() => {
-            this.props.navigation.navigate("Item", { beer: this.props.br.name })
-          }} >{this.props.br.name}</Text>
+          <Text style={{ textAlign: "right", fontSize: 18, fontWeight: 'bold' }} >{this.props.br.name}</Text>
         </View>
       </View>
     );
