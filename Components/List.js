@@ -38,7 +38,7 @@ export default class Home extends Component {
       return (
         <FlatList
           data={this.state.result}
-          renderItem={({ item }) => <ListItem br={item} />}
+          renderItem={({ item }) => <ListItem br={item} nav={this.props.navigation} />}
           keyExtractor={(item, i) => i.toString()}
         />
       );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, ActivityIndicator, Image } from "react-native";
+import { Text, StyleSheet, View, ActivityIndicator, Image, ScrollView, Alert } from "react-native";
 import styles from './../style/style';
 import axios from "axios";
 
@@ -23,29 +23,46 @@ export default class Home extends Component {
           this.setState({ result: response.data.data[0] })
         }
         else {
-          console.log('ALERT');//Apres
+          Alert.alert("Recherche Bière", "Ce texte ne correspant à aucune bière", [
+            {
+              text: "OK",
+              onPress: () => { this.props.navigation.navigate('Search') }
+            },
+            {
+              text: "Voir la liste",
+              onPress: () => { this.props.navigation.navigate('Search'); this.props.navigation.navigate('List') }
+            }
+          ])
         }
       })
+  }
+
+  image = () => {
+    let image = { uri: 'https://www.liquor.com/thmb/nzYXpum0AiReyEulV0dPqMBMxmY=/1440x1440/filters:fill(auto,1)/beer-0358105730dc469190b50f289962c910.png' };
+    if (this.state.result.labels !== undefined) {
+      image = { uri: this.state.result.labels.large };
+    }
+    return (<Image source={image} style={styles.imageItem} />)
   }
 
   render = () => {
     if (this.state.result === null) {
       return (
-        <View style={{ paddingTop: 20 }}>
+        <ScrollView style={{ paddingTop: 20 }}>
           <ActivityIndicator size="large" color={styles.black} />
-        </View>
+        </ScrollView>
       );
     }
     else {
       return (
-        <View style={styles.container}>
-          <Image source={{ uri: this.state.result.labels.large }} style={styles.imageItem} />
+        <ScrollView style={styles.container}>
+          {this.image()}
           <View style={styles.infoBeer}>
             <Text style={styles.txtInfo}>Nom: <Text style={{ color: styles.black }}>{this.state.result.nameDisplay}</Text></Text>
             <Text style={styles.txtInfo}>Catégorie: <Text style={{ color: styles.black }}>{this.state.result.style.category.name}</Text></Text>
             <Text style={[styles.txtInfo, styles.margBot]}>Style: <Text style={{ color: styles.black }}>{this.state.result.style.shortName}</Text></Text>
           </View>
-          <Text numberOfLines={5} style={{ fontSize: 15 }}>{this.state.result.style.description}</Text>
+          <Text style={{ fontSize: 15 }}>{this.state.result.style.description}</Text>
           <View style={styles.flex}>
             <View style={styles.infoItem}>
               <Text style={styles.txtInfo}>IBU</Text>
@@ -60,7 +77,7 @@ export default class Home extends Component {
               <Text>{this.state.result.style.srmMin} - {this.state.result.style.srmMax}</Text>
             </View>
           </View>
-        </View>
+        </ScrollView>
       );
     }
   }

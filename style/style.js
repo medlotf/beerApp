@@ -59,8 +59,7 @@ export default {
     justifyContent: "space-around"
   },
   infoItem: {
-    backgroundColor: blueColor,
-    marginTop: 30,
+    marginTop: 10,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',

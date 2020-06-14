@@ -41,6 +41,7 @@ function StackList() {
     <Stack.Navigator>
       <Stack.Screen name="List" component={List} options={{ ...options, title: 'List des bières' }} />
       <Stack.Screen name="Item" component={Item} options={{ ...options, title: "Information d'une bière" }} />
+      <Stack.Screen name="ListItem" component={ListItem} options={{ ...options, title: 'List des bières' }} />
     </Stack.Navigator>
   );
 }
