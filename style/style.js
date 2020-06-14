@@ -64,5 +64,8 @@ export default {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  bld: {
+    fontWeight: 'bold'
   }
 }

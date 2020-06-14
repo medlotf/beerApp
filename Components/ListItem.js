@@ -15,7 +15,7 @@ export default class ListItem extends Component {
   image = () => {
     let image = { uri: 'https://www.liquor.com/thmb/nzYXpum0AiReyEulV0dPqMBMxmY=/1440x1440/filters:fill(auto,1)/beer-0358105730dc469190b50f289962c910.png' };
     if (this.props.br.labels !== undefined) {
-      image = { uri: this.props.br.labels.medium };
+      image = { uri: this.props.br.labels.large };
     }
     return (<Image source={image} style={{ width: 60, height: 60 }} />)
   }
@@ -38,7 +38,7 @@ export default class ListItem extends Component {
 
 const styles = StyleSheet.create({
   viewContainer: {
-    backgroundColor: '#fff7e3',
+    backgroundColor: '#e9f2f7',
     borderBottomWidth: 1,
     borderBottomColor: globalStyle.black,
     paddingHorizontal: 15,

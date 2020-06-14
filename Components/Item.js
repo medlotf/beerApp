@@ -66,15 +66,15 @@ export default class Home extends Component {
           <View style={styles.flex}>
             <View style={styles.infoItem}>
               <Text style={styles.txtInfo}>IBU</Text>
-              <Text>{this.state.result.style.ibuMin} - {this.state.result.style.ibuMax}</Text>
+              <Text style={styles.bld}>{this.state.result.style.ibuMin} - {this.state.result.style.ibuMax}</Text>
             </View>
             <View style={styles.infoItem}>
               <Text style={styles.txtInfo}>ABV</Text>
-              <Text>{this.state.result.style.abvMin} - {this.state.result.style.abvMax}</Text>
+              <Text style={styles.bld}>{this.state.result.style.abvMin} - {this.state.result.style.abvMax}</Text>
             </View>
             <View style={styles.infoItem}>
               <Text style={styles.txtInfo}>SRM</Text>
-              <Text>{this.state.result.style.srmMin} - {this.state.result.style.srmMax}</Text>
+              <Text style={styles.bld}>{this.state.result.style.srmMin} - {this.state.result.style.srmMax}</Text>
             </View>
           </View>
         </ScrollView>
