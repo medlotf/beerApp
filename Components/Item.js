@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, ActivityIndicator, Image, ScrollView, Alert } from "react-native";
+import { Text, View, ActivityIndicator, Image, ScrollView, Alert } from "react-native";
 import styles from './../style/style';
 import axios from "axios";
 
