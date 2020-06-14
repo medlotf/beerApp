@@ -14,7 +14,7 @@ export default class Home extends Component {
     }
     setTimeout(() => {
       this.fetchBeers()
-    }, 200);
+    }, 1500);
   }
 
   fetchBeers = () => {
